@@ -29,6 +29,7 @@ http.createServer(function (req, res) {
 	}
 	else{
 		res.writeHead(404);
+		res.end('Not found');
 	}
 }).listen(port, '127.0.0.1');
 console.log('Server running at http://127.0.0.1:'+port);
