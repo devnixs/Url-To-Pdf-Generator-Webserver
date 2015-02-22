@@ -4,8 +4,7 @@
   "description": "Generates a pdf from a given URL",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Raphael ATALLAH",
   "license": "ISC",
