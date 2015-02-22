@@ -9,6 +9,8 @@ var options = {};
 
 var port = process.env.PORT || 3000;
 
+var errorMessage = 'Something went wrong and I couldn\'t generate a pdf for this page.\nTry with a lighter page.\n';
+
 http.createServer(function (req, res) {
 	var data = url.parse(req.url,true);
 	var finalUrl = data.query.url;
@@ -21,19 +23,19 @@ http.createServer(function (req, res) {
 					if(err){
 						 console.log(err);
 						res.writeHead(500);
-						res.end('Something went wrong and I couldn\'t generate a pdf for this page.\nTry with a lighter page.\nError log:\n'+err);
+						res.end(errorMessage+'Error log:\n'+err);
 					} else if(stream){
 						res.writeHead(200, {'Content-Type': 'application/pdf'});
 						stream.pipe(res);
 					}
 					else{
 						res.writeHead(500);
-						res.end('Something went wrong and I couldn\'t generate a pdf for this page.\nTry with a lighter page.');
+						res.end(errorMessage);
 					}
 				});
 			}
 			else{
-				console.log('Something wrong happened',error,response);
+				console.log(errorMessage+'Error log:\n'+error);
 			}
 		});
 	}
