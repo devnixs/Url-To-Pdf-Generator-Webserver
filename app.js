@@ -7,7 +7,7 @@ var pdf = require('html-pdf');
 
 var options = {};
 
-var port = 80;
+var port = process.env.PORT || 3000;
 
 http.createServer(function (req, res) {
 	var data = url.parse(req.url,true);
