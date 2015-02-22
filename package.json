@@ -1,0 +1,15 @@
+{
+  "name": "UrlToPdfWebServer",
+  "version": "1.0.0",
+  "description": "Generates a pdf from a given URL",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Raphael ATALLAH",
+  "license": "ISC",
+  "devDependencies": {
+    "html-pdf": "^1.0.0",
+    "request": "^2.53.0"
+  }
+}
