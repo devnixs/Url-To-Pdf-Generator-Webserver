@@ -21,7 +21,6 @@ http.createServer(function (req, res) {
 				pdf.create(body, options).toStream(function(err, stream) {
 					console.log('Done generating');
 					if(err){
-						 console.log(err);
 						res.writeHead(500);
 						res.end(errorMessage+'Error log:\n'+err);
 					} else if(stream){
@@ -35,7 +34,8 @@ http.createServer(function (req, res) {
 				});
 			}
 			else{
-				console.log(errorMessage+'Error log:\n'+error);
+				res.writeHead(500);
+				res.end(errorMessage+'Error log:\n'+error);
 			}
 		});
 	}
@@ -44,4 +44,3 @@ http.createServer(function (req, res) {
 		res.end('Not found');
 	}
 }).listen(port);
-console.log('Server running at http://127.0.0.1:'+port);
