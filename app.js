@@ -18,14 +18,17 @@ http.createServer(function (req, res) {
 				console.log('Received!');
 				pdf.create(body, options).toStream(function(err, stream) {
 					console.log('Done generating');
-					if(err) console.log(err);
-					if(stream){
+					if(err){
+						 console.log(err);
+						res.writeHead(500);
+						res.end('Something went wrong and I couldn\'t generate a pdf for this page.\nTry with a lighter page.\nError log:\n'+err);
+					} else if(stream){
 						res.writeHead(200, {'Content-Type': 'application/pdf'});
 						stream.pipe(res);
 					}
 					else{
 						res.writeHead(500);
-						res.end('Something went wrong and I couldn\'t generate a pdf for this page.\n Try with a lighter page.');
+						res.end('Something went wrong and I couldn\'t generate a pdf for this page.\nTry with a lighter page.');
 					}
 				});
 			}
