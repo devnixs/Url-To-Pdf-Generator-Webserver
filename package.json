@@ -8,7 +8,7 @@
   },
   "author": "Raphael ATALLAH",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "html-pdf": "^1.0.0",
     "request": "^2.53.0"
   }
